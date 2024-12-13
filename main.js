@@ -49,6 +49,10 @@ document.addEventListener('DOMContentLoaded', async () => {
   document.getElementById('loginBtn').addEventListener('click', loginUser);
   document.getElementById('logoutBtn').addEventListener('click', logoutUser);
 
+  // Initialize the map
+  initMap();
+});
+
 // Load listings from JSON file
 async function loadListings() {
   const response = await fetch('listings.json');
@@ -325,24 +329,29 @@ function initDynamicFunctions(lang) {
   });
 }
 
-  // Initialize the map
-  initMap();
-});
-    
 // Initialize the map centered on South Africa
 function initMap() {
+  console.log('Initializing map...');
+
   const defaultLat = -33.9249; // Cape Town, South Africa
   const defaultLng = 18.4241;
   const defaultZoom = 5;
 
-  const map = L.map('mapContainer').setView([defaultLat, defaultLng], defaultZoom);
+  try {
+    const map = L.map('mapContainer').setView([defaultLat, defaultLng], defaultZoom);
+    console.log('Map created successfully.');
 
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '© OpenStreetMap contributors'
-  }).addTo(map);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+    console.log('Tile layer added.');
 
-  // Sample marker in Cape Town
-  L.marker([defaultLat, defaultLng]).addTo(map)
-    .bindPopup("<b>Sample Funeral Home</b><br>Cape Town, South Africa").openPopup();
+    // Sample marker in Cape Town
+    L.marker([defaultLat, defaultLng]).addTo(map)
+      .bindPopup("<b>Sample Funeral Home</b><br>Cape Town, South Africa").openPopup();
+    console.log('Marker added.');
+  } catch (error) {
+    console.error('Error initializing map:', error);
+  }
 }
