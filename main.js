@@ -158,3 +158,218 @@ function loadMap() {
   // and mark funeral locations. This is a placeholder.
   document.getElementById('mapContainer').textContent = 'Map would be displayed here.';
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Dynamic testimonial carousel
+  const testimonials = [
+    {
+      quote: "This service helped us bring together friends and family from all over, making it easier to share stories and celebrate my father’s life.",
+      author: "— Emily R."
+    },
+    {
+      quote: "We discovered a beautiful poem here that perfectly captured the spirit of our loved one’s passing. Thank you for providing this space.",
+      author: "— David K."
+    },
+    {
+      quote: "The search feature made it easy to find the service details and share them with distant relatives. A heartfelt platform.",
+      author: "— Maria S."
+    }
+  ];
+  
+  let currentTestimonialIndex = 0;
+  const testimonialCard = document.getElementById('testimonialCard');
+
+  function showTestimonial(index) {
+    testimonialCard.innerHTML = `
+      <blockquote>
+        "${testimonials[index].quote}"
+      </blockquote>
+      <cite>${testimonials[index].author}</cite>
+    `;
+  }
+
+  showTestimonial(currentTestimonialIndex);
+
+  // Cycle through testimonials every 5 seconds
+  setInterval(() => {
+    currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonials.length;
+    showTestimonial(currentTestimonialIndex);
+  }, 5000);
+
+  // Intersection Observer for scroll reveal animations
+  const hiddenElements = document.querySelectorAll('.hidden-on-load');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  hiddenElements.forEach(el => observer.observe(el));
+
+  // Hero search suggestions (fake dynamic suggestions)
+  const heroSearchInput = document.getElementById('heroSearchInput');
+  const searchSuggestions = document.getElementById('searchSuggestions');
+  const suggestionList = [
+    "John Doe - St. Mary's Church",
+    "Memorial Gardens - Jane Smith",
+    "Celebration of Life - Anderson Family",
+    "Greenwood Funeral Home",
+    "Local Services Near You"
+  ];
+
+  heroSearchInput.addEventListener('input', () => {
+    const query = heroSearchInput.value.toLowerCase();
+    if (!query) {
+      searchSuggestions.style.display = 'none';
+      return;
+    }
+
+    const filtered = suggestionList.filter(item => item.toLowerCase().includes(query));
+    if (filtered.length > 0) {
+      searchSuggestions.innerHTML = filtered.map(item => `<li>${item}</li>`).join('');
+      searchSuggestions.style.display = 'block';
+    } else {
+      searchSuggestions.style.display = 'none';
+    }
+  });
+
+  searchSuggestions.addEventListener('click', (e) => {
+    if (e.target.tagName === 'LI') {
+      heroSearchInput.value = e.target.textContent;
+      searchSuggestions.style.display = 'none';
+    }
+  });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Load language file
+  fetch('en.json')
+    .then(response => response.json())
+    .then(lang => {
+      applyLanguage(lang);
+      initDynamicFunctions(lang);
+    })
+    .catch(err => console.error('Error loading language file', err));
+});
+
+function applyLanguage(lang) {
+  // Apply text to elements with data-key
+  document.querySelectorAll('[data-key]').forEach(elem => {
+    const key = elem.getAttribute('data-key');
+    const text = getNestedProperty(lang, key);
+    if (text) {
+      elem.textContent = text;
+    }
+  });
+
+  // Apply placeholders
+  document.querySelectorAll('[data-placeholder-key]').forEach(elem => {
+    const key = elem.getAttribute('data-placeholder-key');
+    const text = getNestedProperty(lang, key);
+    if (text) {
+      elem.setAttribute('placeholder', text);
+    }
+  });
+
+  // Now handle arrays and repeated structures:
+  // Features
+  const featureGrid = document.getElementById('featureGrid');
+  featureGrid.innerHTML = '';
+  lang.featuresSection.features.forEach((feature, i) => {
+    const div = document.createElement('div');
+    div.className = 'feature-card hidden-on-load';
+    div.innerHTML = `
+      <img src="images/icon-${i+1}.png" alt="${feature.iconAlt}" />
+      <h3>${feature.title}</h3>
+      <p>${feature.description}</p>
+    `;
+    featureGrid.appendChild(div);
+  });
+
+  // Steps
+  const stepsList = document.getElementById('stepsList');
+  stepsList.innerHTML = '';
+  lang.howItWorks.steps.forEach((step, i) => {
+    const li = document.createElement('li');
+    li.className = 'hidden-on-load';
+    li.innerHTML = `
+      <img src="images/step${i+1}.png" alt="${step.imgAlt}">
+      <h4>${step.stepTitle}</h4>
+      <p>${step.description}</p>
+    `;
+    stepsList.appendChild(li);
+  });
+}
+
+function initDynamicFunctions(lang) {
+  // Testimonials carousel
+  const testimonials = lang.testimonialsSection.testimonials;
+  let currentTestimonialIndex = 0;
+  const testimonialCard = document.getElementById('testimonialCard');
+
+  function showTestimonial(index) {
+    testimonialCard.innerHTML = `
+      <blockquote>"${testimonials[index].quote}"</blockquote>
+      <cite>${testimonials[index].author}</cite>
+    `;
+  }
+
+  showTestimonial(currentTestimonialIndex);
+  setInterval(() => {
+    currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonials.length;
+    showTestimonial(currentTestimonialIndex);
+  }, 5000);
+
+  // Intersection Observer for reveal animations
+  const hiddenElements = document.querySelectorAll('.hidden-on-load');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  hiddenElements.forEach(el => observer.observe(el));
+
+  // Fake Search Suggestions
+  const heroSearchInput = document.getElementById('heroSearchInput');
+  const searchSuggestions = document.getElementById('searchSuggestions');
+  const suggestionList = [
+    "John Doe - St. Mary's Church",
+    "Memorial Gardens - Jane Smith",
+    "Celebration of Life - Anderson Family",
+    "Greenwood Funeral Home",
+    "Local Services Near You"
+  ];
+
+  heroSearchInput.addEventListener('input', () => {
+    const query = heroSearchInput.value.toLowerCase();
+    if (!query) {
+      searchSuggestions.style.display = 'none';
+      return;
+    }
+
+    const filtered = suggestionList.filter(item => item.toLowerCase().includes(query));
+    if (filtered.length > 0) {
+      searchSuggestions.innerHTML = filtered.map(item => `<li>${item}</li>`).join('');
+      searchSuggestions.style.display = 'block';
+    } else {
+      searchSuggestions.style.display = 'none';
+    }
+  });
+
+  searchSuggestions.addEventListener('click', (e) => {
+    if (e.target.tagName === 'LI') {
+      heroSearchInput.value = e.target.textContent;
+      searchSuggestions.style.display = 'none';
+    }
+  });
+}
+
+// Helper function to get nested properties from JSON using dot notation keys
+function getNestedProperty(obj, keyString) {
+  return keyString.split('.').reduce((o, k) => (o || {})[k], obj);
+}

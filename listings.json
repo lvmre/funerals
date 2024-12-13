@@ -1,0 +1,22 @@
+[
+  {
+    "id": "1",
+    "deceasedName": "John Doe",
+    "funeralHome": "Peaceful Rest Funeral Home",
+    "serviceLocation": "St. Mary’s Church",
+    "programDetails": "9:00 AM - Viewing, 10:00 AM - Service",
+    "poems": "Amazing Grace",
+    "obituary": "John lived a full life as a beloved father and husband...",
+    "category": "traditional"
+  },
+  {
+    "id": "2",
+    "deceasedName": "Jane Smith",
+    "funeralHome": "Memorial Gardens",
+    "serviceLocation": "Memorial Hall, Main Street",
+    "programDetails": "11:00 AM - Tribute Speeches, 12:00 PM - Reception",
+    "poems": "She Walks in Beauty by Lord Byron",
+    "obituary": "Jane was a creative soul who touched everyone’s heart...",
+    "category": "memorial"
+  }
+]

@@ -1,0 +1,97 @@
+{
+  "appTitle": "Funeral Profiling App - Remember with Grace",
+  "header": {
+    "logoAlt": "App Logo",
+    "brandName": "Remember with Grace",
+    "nav": {
+      "features": "Features",
+      "howItWorks": "How It Works",
+      "testimonials": "Testimonials",
+      "ctaButton": "Create a Listing"
+    }
+  },
+  "hero": {
+    "heading": "Honoring Lives, Sharing Memories",
+    "subheading": "Find or create detailed funeral listings that bring loved ones together in remembrance.",
+    "searchPlaceholder": "Search by name, funeral home, or location...",
+    "searchButton": "Search"
+  },
+  "featuresSection": {
+    "title": "What You Can Do",
+    "features": [
+      {
+        "iconAlt": "Create Listing Icon",
+        "title": "Create Detailed Listings",
+        "description": "Capture funeral details, programs, and poems in a warm and organized way."
+      },
+      {
+        "iconAlt": "Search Icon",
+        "title": "Easy Search",
+        "description": "Find upcoming funerals by location, name, or date, and never miss a memorial service."
+      },
+      {
+        "iconAlt": "Guestbook Icon",
+        "title": "Guestbook & Messages",
+        "description": "Leave heartfelt messages, share memories, and offer condolences through our guestbook feature."
+      },
+      {
+        "iconAlt": "Map Icon",
+        "title": "Map Integration",
+        "description": "Find directions and nearby services easily with built-in map tools."
+      }
+    ]
+  },
+  "howItWorks": {
+    "title": "How It Works",
+    "steps": [
+      {
+        "imgAlt": "Step 1",
+        "stepTitle": "Sign Up",
+        "description": "Create an account and set your preferences."
+      },
+      {
+        "imgAlt": "Step 2",
+        "stepTitle": "Create or Find Listings",
+        "description": "Easily add new funeral profiles or search for existing ones using filters and keywords."
+      },
+      {
+        "imgAlt": "Step 3",
+        "stepTitle": "Share & Remember",
+        "description": "Invite friends and family, leave messages, and share memories—all in one peaceful space."
+      }
+    ]
+  },
+  "testimonialsSection": {
+    "title": "Words of Comfort",
+    "intro": "Hear from those who found solace in our platform:",
+    "testimonials": [
+      {
+        "quote": "This service helped us bring together friends and family from all over, making it easier to share stories and celebrate my father’s life.",
+        "author": "— Emily R."
+      },
+      {
+        "quote": "We discovered a beautiful poem here that perfectly captured the spirit of our loved one’s passing. Thank you for providing this space.",
+        "author": "— David K."
+      },
+      {
+        "quote": "The search feature made it easy to find the service details and share them with distant relatives. A heartfelt platform.",
+        "author": "— Maria S."
+      }
+    ],
+    "poemHighlight": "\"For death is no more than a turning of us over from time to eternity.\" – William Penn"
+  },
+  "mapPreview": {
+    "title": "Find Services Nearby",
+    "description": "Locate funeral homes, churches, and memorial halls conveniently on our integrated map.",
+    "ctaButton": "Explore Listings"
+  },
+  "footer": {
+    "links": {
+      "about": "About Us",
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "support": "Support"
+    },
+    "copyright": "© 2024 Remember with Grace"
+  }
+}

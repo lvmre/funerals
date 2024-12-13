@@ -1,136 +1,254 @@
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f7f7f7;
+  font-family: "Helvetica Neue", sans-serif;
+  background: #fafafa;
   color: #333;
 }
 
-header {
-  background: #444;
+.site-header, .site-footer {
+  background: #333;
   color: #fff;
-  padding: 15px;
+  padding: 20px;
+}
+
+.site-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
-header h1 {
-  margin: 0;
-}
-
-.user-actions button {
-  margin-left: 10px;
-  background: #fff;
-  color: #444;
-  border: none;
-  padding: 8px 12px;
-  cursor: pointer;
-}
-
-.search-section, .listing-section, .map-section {
-  padding: 20px;
-}
-
-.search-section input, .search-section select {
-  padding: 10px;
-  margin-right: 10px;
-}
-
-.listing-section {
-  background: #fff;
-  border-top: 1px solid #ccc;
-}
-
-.listings {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.listing {
-  background: #f0f0f0;
-  padding: 15px;
-  border-radius: 5px;
-}
-
-.listing h3 {
-  margin-top: 0;
-}
-
-#mapContainer {
-  background: #ddd;
-  height: 300px;
-  margin-bottom: 20px;
+.site-header .logo {
   display: flex;
   align-items: center;
-  justify-content: center;
 }
-
-footer {
-  text-align: center;
-  padding: 15px;
-  background: #444;
+.site-header .logo img {
+  height: 40px;
+  margin-right: 10px;
+}
+.site-header nav a {
   color: #fff;
-  margin-top: 20px;
+  margin-right: 20px;
+  text-decoration: none;
+  font-weight: 500;
 }
-
-#addListingBtn {
-  margin-top: 20px;
-  padding: 10px 15px;
-  background: #444;
+.main-nav {
+  display: flex;
+  align-items: center;
+}
+.cta-button {
+  background: #7562d5;
   color: #fff;
   border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.cta-button:hover {
+  background: #5b48b8;
+}
+
+.hero {
+  position: relative;
+  background: url('images/hero-bg.jpg') no-repeat center center/cover;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 50px;
+  color: #fff;
+}
+.hero-overlay {
+  position: absolute;
+  top:0; left:0; right:0; bottom:0;
+  background: rgba(0,0,0,0.4);
+}
+.hero-content {
+  position: relative;
+  max-width: 600px;
+  z-index: 1;
+}
+.hero-content h2 {
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+.hero-content p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+}
+.hero-search {
+  display: flex;
+}
+.hero-search input {
+  flex: 1;
+  padding: 15px;
+  border: none;
+  border-radius: 5px 0 0 5px;
+}
+.hero-search button {
+  background: #7562d5;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  color: #fff;
   cursor: pointer;
 }
 
-/* Modal Styles */
-.modal {
-  display: none; 
-  position: fixed; 
-  z-index: 999; 
-  padding-top: 100px; 
-  left: 0; top: 0; width: 100%; height: 100%; 
-  overflow: auto; background-color: rgba(0,0,0,0.4);
-}
-
-.modal-content {
+.features {
   background: #fff;
-  margin: auto;
-  padding: 20px;
-  width: 90%;
-  max-width: 600px;
-  border-radius: 8px;
-  position: relative;
+  padding: 80px 50px;
+  text-align: center;
+}
+.features h2 {
+  font-size: 2.5em;
+  margin-bottom: 40px;
+}
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+}
+.feature-card {
+  background: #f9f9f9;
+  padding: 30px;
+  border-radius: 10px;
+  transition: transform 0.2s ease;
+}
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+.feature-card img {
+  height: 50px;
+  margin-bottom: 20px;
+}
+.feature-card h3 {
+  margin-bottom: 10px;
 }
 
-.modal-content h2 {
-  margin-top: 0;
+.how-it-works {
+  background: linear-gradient(to bottom right, #f0f0ff, #eae7ff);
+  padding: 80px 50px;
+  text-align: center;
+}
+.how-it-works h2 {
+  font-size: 2.5em;
+  margin-bottom: 40px;
+}
+.steps {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+.steps li {
+  max-width: 250px;
+}
+.steps img {
+  height: 80px;
+  margin-bottom: 20px;
+}
+.steps h4 {
+  margin-bottom: 10px;
 }
 
-.modal-content label {
-  display: block;
-  margin: 10px 0 5px;
+.testimonials {
+  background: #fff;
+  padding: 80px 50px;
+  text-align: center;
+}
+.testimonial-intro h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+.testimonial-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+  margin-top: 40px;
+}
+.testimonial-card {
+  background: #f9f9f9;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 400px;
+}
+.testimonial-card blockquote {
+  font-style: italic;
+  margin-bottom: 20px;
+}
+.poem-highlight {
+  margin-top: 50px;
+  font-style: italic;
+  color: #555;
 }
 
-.modal-content input, .modal-content textarea, .modal-content select {
-  width: 100%;
-  padding: 8px;
-  box-sizing: border-box;
+.map-preview {
+  background: #fafafa;
+  padding: 80px 50px;
+  text-align: center;
+}
+.map-preview h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+.map-preview p {
+  max-width: 400px;
+  margin: 0 auto 40px;
+  font-size: 1.1em;
+  line-height: 1.5em;
+}
+.map-container img {
+  max-width: 100%;
+  border-radius: 10px;
 }
 
-.modal-content button {
-  margin-top: 15px;
-  background: #444;
+.site-footer {
+  text-align: center;
+}
+.footer-links {
+  margin-bottom: 20px;
+}
+.footer-links a {
+  color: #aaa;
+  text-decoration: none;
+  margin: 0 10px;
+}
+.footer-links a:hover {
   color: #fff;
-  border: none;
+}
+
+.hidden-on-load {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.hidden-on-load.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Search suggestions */
+.search-suggestions {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+  position: absolute;
+  background: #fff;
+  color: #333;
+  width: calc(100% - 100px);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  display: none;
+  border-radius: 5px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+.search-suggestions li {
   padding: 10px;
   cursor: pointer;
 }
-
-.close {
-  position: absolute;
-  right: 20px;
-  top: 20px;
-  font-size: 24px;
-  cursor: pointer;
+.search-suggestions li:hover {
+  background: #f0f0f0;
 }
+
+/* Testimonial card styling remains the same, but will be dynamically replaced */
