@@ -154,7 +154,7 @@ function logoutUser() {
 
 // Placeholder map function
 function loadMap() {
-  // Here you would load a map from e.g. Google Maps or Mapbox
+  // Here you would load a map from e.g. Google Maps or MapBox
   // and mark funeral locations. This is a placeholder.
   document.getElementById('mapContainer').textContent = 'Map would be displayed here.';
 }
@@ -371,5 +371,26 @@ function initDynamicFunctions(lang) {
 
 // Helper function to get nested properties from JSON using dot notation keys
 function getNestedProperty(obj, keyString) {
-  return keyString.split('.').reduce((o, k) => (o || {})[k], obj);
+  return keyString.split('.').reduce((o, k) => o?.[k], obj);
+}
+
+
+function initMap() {
+  // Set a default location and zoom. 
+  // Example: New York City coordinates (latitude: 40.7128, longitude: -74.0060)
+  const defaultLat = 40.7128;
+  const defaultLng = -74.0060;
+  const defaultZoom = 13;
+
+  const map = L.map('mapContainer').setView([defaultLat, defaultLng], defaultZoom);
+
+  // Add OpenStreetMap tiles
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '© OpenStreetMap contributors'
+  }).addTo(map);
+
+  // Add a sample marker (e.g., a funeral home location)
+  const marker = L.marker([40.7128, -74.0060]).addTo(map);
+  marker.bindPopup("<b>Sample Funeral Home</b><br>123 Main St, New York, NY").openPopup();
 }

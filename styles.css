@@ -251,4 +251,10 @@ body {
   background: #f0f0f0;
 }
 
+.map-container {
+  height: 400px;
+  width: 100%;
+  margin: 40px 0;
+}
+
 /* Testimonial card styling remains the same, but will be dynamically replaced */
