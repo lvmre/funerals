@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Leaflet Map Test</title>
+  
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-sA+ePlFsrE4Qks7PJrbYTYIKe7h6D4Ar/2u3nYZpM6I=" crossorigin=""/>
+  
+  <style>
+    body { margin: 0; }
+    #mapContainer {
+      height: 100vh;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="mapContainer"></div>
+  
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-o9N1Xn8R2Afu74WjkxHpn6XgWi3D+wSJtX7oY8yF0CY=" crossorigin=""></script>
+  
+  <script>
+    const defaultLat = -33.9249; // Cape Town, South Africa
+    const defaultLng = 18.4241;
+    const defaultZoom = 5;
+
+    const map = L.map('mapContainer').setView([defaultLat, defaultLng], defaultZoom);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    L.marker([defaultLat, defaultLng]).addTo(map)
+      .bindPopup("<b>Sample Funeral Home</b><br>Cape Town, South Africa").openPopup();
+  </script>
+</body>
+</html>

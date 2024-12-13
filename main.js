@@ -49,10 +49,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   document.getElementById('loginBtn').addEventListener('click', loginUser);
   document.getElementById('logoutBtn').addEventListener('click', logoutUser);
 
-  // Initialize the map
-  initMap();
-});
-
 // Load listings from JSON file
 async function loadListings() {
   const response = await fetch('listings.json');
@@ -329,6 +325,10 @@ function initDynamicFunctions(lang) {
   });
 }
 
+  // Initialize the map
+  initMap();
+});
+    
 // Initialize the map centered on South Africa
 function initMap() {
   const defaultLat = -33.9249; // Cape Town, South Africa
