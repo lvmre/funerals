@@ -6,24 +6,25 @@
   <title data-key="appTitle">Funeral Profiling App</title>
   
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css" integrity="sha384-..." crossorigin="anonymous">
+  <!-- Using a stable Font Awesome CDN link for version 6.x -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-papC2EvxIrVAdnplIl7sU5BnMjlGk5I2/UsbbggKMKxufRUwVV6zYxP7SNnXb4eG3Jx1m5nd9G06d6Qjv89fHw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-sA+ePlFsrE4Qks7PJrbYTYIKe7h6D4Ar/2u3nYZpM6I=" crossorigin=""/>
-
+  
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header class="site-header">
     <div class="logo">
       <img src="images/logo.png" alt="" data-key="header.logoAlt" />
-      <h1 data-key="header.brandName"><i class="fa-solid fa-feather"></i></h1>
+      <h1 data-key="header.brandName"><i class="fa-solid fa-feather"></i> Remember with Grace</h1>
     </div>
     <nav class="main-nav">
-      <a href="#features" data-key="header.nav.features"><i class="fa-solid fa-list"></i></a>
-      <a href="#how-it-works" data-key="header.nav.howItWorks"><i class="fa-solid fa-clock-rotate-left"></i></a>
-      <a href="#testimonials" data-key="header.nav.testimonials"><i class="fa-solid fa-comments"></i></a>
-      <button class="cta-button" data-key="header.nav.ctaButton"><i class="fa-solid fa-plus-circle"></i></button>
+      <a href="#features" data-key="header.nav.features"><i class="fa-solid fa-list"></i> Features</a>
+      <a href="#how-it-works" data-key="header.nav.howItWorks"><i class="fa-solid fa-clock-rotate-left"></i> How It Works</a>
+      <a href="#testimonials" data-key="header.nav.testimonials"><i class="fa-solid fa-comments"></i> Testimonials</a>
+      <button class="cta-button" data-key="header.nav.ctaButton"><i class="fa-solid fa-plus-circle"></i> Create a Listing</button>
     </nav>
     <div class="user-actions">
       <button id="loginBtn" class="cta-button">Login</button>
@@ -33,11 +34,11 @@
 
   <section class="hero">
     <div class="hero-content">
-      <h2 data-key="hero.heading"></h2>
-      <p data-key="hero.subheading"></p>
+      <h2 data-key="hero.heading">Honoring Lives, Sharing Memories</h2>
+      <p data-key="hero.subheading">Find or create detailed funeral listings that bring loved ones together in remembrance.</p>
       <div class="hero-search">
-        <input type="text" id="heroSearchInput" data-placeholder-key="hero.searchPlaceholder" />
-        <button id="heroSearchBtn" data-key="hero.searchButton"></button>
+        <input type="text" id="heroSearchInput" data-placeholder-key="hero.searchPlaceholder" placeholder="Search by name, funeral home, or location..." />
+        <button id="heroSearchBtn" data-key="hero.searchButton">Search</button>
       </div>
       <ul class="search-suggestions" id="searchSuggestions"></ul>
     </div>
@@ -45,14 +46,14 @@
   </section>
 
   <section class="features" id="features">
-    <h2 data-key="featuresSection.title"></h2>
+    <h2 data-key="featuresSection.title">What You Can Do</h2>
     <div class="feature-grid" id="featureGrid">
       <!-- Feature cards injected by JS -->
     </div>
   </section>
 
   <section class="how-it-works" id="how-it-works">
-    <h2 data-key="howItWorks.title"></h2>
+    <h2 data-key="howItWorks.title">How It Works</h2>
     <ol class="steps" id="stepsList">
       <!-- Steps injected by JS -->
     </ol>
@@ -60,22 +61,24 @@
 
   <section class="testimonials" id="testimonials">
     <div class="testimonial-intro">
-      <h2 data-key="testimonialsSection.title"></h2>
-      <p data-key="testimonialsSection.intro"></p>
+      <h2 data-key="testimonialsSection.title">Words of Comfort</h2>
+      <p data-key="testimonialsSection.intro">Hear from those who found solace in our platform:</p>
     </div>
     <div class="testimonial-cards">
-      <div class="testimonial-card" id="testimonialCard"></div>
+      <div class="testimonial-card" id="testimonialCard">
+        <!-- Dynamic content injected by JS -->
+      </div>
     </div>
     <div class="poem-highlight">
-      <p><em data-key="testimonialsSection.poemHighlight"></em></p>
+      <p><em data-key="testimonialsSection.poemHighlight">“For death is no more than a turning of us over from time to eternity.” – William Penn</em></p>
     </div>
   </section>
 
   <section class="map-preview">
-    <h2 data-key="mapPreview.title"></h2>
-    <p data-key="mapPreview.description"></p>
+    <h2 data-key="mapPreview.title">Find Services Nearby</h2>
+    <p data-key="mapPreview.description">Locate funeral homes, churches, and memorial halls conveniently on our integrated map.</p>
     <div class="map-container" id="mapContainer"></div>
-    <button class="cta-button" data-key="mapPreview.ctaButton"></button>
+    <button class="cta-button" data-key="mapPreview.ctaButton">Explore Listings</button>
   </section>
 
   <section class="listing-section">
@@ -91,7 +94,7 @@
       </select>
     </div>
     <div class="listings" id="listingsContainer">
-      <!-- Listings will be dynamically inserted here -->
+      <!-- Listings will be dynamically inserted here as responsive cards -->
     </div>
     <button id="addListingBtn" class="cta-button">Add Listing</button>
   </section>
@@ -134,12 +137,12 @@
 
   <footer class="site-footer">
     <div class="footer-links">
-      <a href="#" data-key="footer.links.about"></a>
-      <a href="#" data-key="footer.links.privacy"></a>
-      <a href="#" data-key="footer.links.terms"></a>
-      <a href="#" data-key="footer.links.support"></a>
+      <a href="#" data-key="footer.links.about">About Us</a>
+      <a href="#" data-key="footer.links.privacy">Privacy</a>
+      <a href="#" data-key="footer.links.terms">Terms</a>
+      <a href="#" data-key="footer.links.support">Support</a>
     </div>
-    <p data-key="footer.copyright"></p>
+    <p data-key="footer.copyright">© 2024 Remember with Grace</p>
   </footer>
 
   <!-- Leaflet JS -->

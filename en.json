@@ -20,22 +20,22 @@
     "title": "What You Can Do",
     "features": [
       {
-        "iconAlt": "Create Listing Icon",
+        "iconClass": "fa-solid fa-book-open",
         "title": "Create Detailed Listings",
         "description": "Capture funeral details, programs, and poems in a warm and organized way."
       },
       {
-        "iconAlt": "Search Icon",
+        "iconClass": "fa-solid fa-magnifying-glass",
         "title": "Easy Search",
         "description": "Find upcoming funerals by location, name, or date, and never miss a memorial service."
       },
       {
-        "iconAlt": "Guestbook Icon",
+        "iconClass": "fa-solid fa-comments",
         "title": "Guestbook & Messages",
         "description": "Leave heartfelt messages, share memories, and offer condolences through our guestbook feature."
       },
       {
-        "iconAlt": "Map Icon",
+        "iconClass": "fa-solid fa-map",
         "title": "Map Integration",
         "description": "Find directions and nearby services easily with built-in map tools."
       }
@@ -45,17 +45,17 @@
     "title": "How It Works",
     "steps": [
       {
-        "imgAlt": "Step 1",
+        "imgAlt": "Step 1: Sign Up",
         "stepTitle": "Sign Up",
         "description": "Create an account and set your preferences."
       },
       {
-        "imgAlt": "Step 2",
+        "imgAlt": "Step 2: Create or Find Listings",
         "stepTitle": "Create or Find Listings",
         "description": "Easily add new funeral profiles or search for existing ones using filters and keywords."
       },
       {
-        "imgAlt": "Step 3",
+        "imgAlt": "Step 3: Share & Remember",
         "stepTitle": "Share & Remember",
         "description": "Invite friends and family, leave messages, and share memories—all in one peaceful space."
       }
