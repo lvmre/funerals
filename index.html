@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Funeral Profiling App</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Funeral Profiling</h1>
+    <div class="user-actions">
+      <button id="loginBtn">Login</button>
+      <button id="logoutBtn" style="display:none;">Logout</button>
+    </div>
+  </header>
+  
+  <section class="search-section">
+    <input type="text" id="searchInput" placeholder="Search by name, funeral home, or location..."/>
+    <button id="searchBtn">Search</button>
+    <select id="filterCategory">
+      <option value="">All Categories</option>
+      <option value="traditional">Traditional</option>
+      <option value="memorial">Memorial Service</option>
+      <option value="celebration">Celebration of Life</option>
+    </select>
+  </section>
+  
+  <section class="map-section">
+    <!-- Placeholder for map integration -->
+    <div id="mapContainer">Map loading...</div>
+  </section>
+  
+  <section class="listing-section">
+    <h2>Funeral Listings</h2>
+    <div class="listings" id="listingsContainer">
+      <!-- Listings will be dynamically inserted here -->
+    </div>
+    <button id="addListingBtn">Add Listing</button>
+  </section>
+  
+  <!-- Modal for adding/editing listings -->
+  <div class="modal" id="listingModal">
+    <div class="modal-content">
+      <span class="close" id="closeModal">&times;</span>
+      <h2 id="modalTitle">Add a Funeral Listing</h2>
+      <form id="listingForm">
+        <label for="deceasedName">Deceased's Name</label>
+        <input type="text" id="deceasedName" name="deceasedName" required />
+        
+        <label for="funeralHome">Funeral Home</label>
+        <input type="text" id="funeralHome" name="funeralHome" />
+        
+        <label for="serviceLocation">Service Location</label>
+        <input type="text" id="serviceLocation" name="serviceLocation" />
+        
+        <label for="programDetails">Program Details</label>
+        <textarea id="programDetails" name="programDetails"></textarea>
+        
+        <label for="poems">Poems/Readings</label>
+        <textarea id="poems" name="poems"></textarea>
+        
+        <label for="obituary">Obituary</label>
+        <textarea id="obituary" name="obituary"></textarea>
+        
+        <label for="category">Category</label>
+        <select id="category" name="category">
+          <option value="traditional">Traditional</option>
+          <option value="memorial">Memorial Service</option>
+          <option value="celebration">Celebration of Life</option>
+        </select>
+        
+        <button type="submit" id="saveListingBtn">Save Listing</button>
+      </form>
+    </div>
+  </div>
+  
+  <footer>
+    <p>&copy; 2024 Funeral Profiling App</p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
